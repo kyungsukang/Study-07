@@ -165,13 +165,12 @@
     </button>
   </div>
 
-  <script type="module">
-    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script>
     const SUPABASE_URL = 'https://bqwbgvgvnwtlqzcbwdlx.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJxd2Jndmd2bnd0bHF6Y2J3ZGx4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU2OTcyNjksImV4cCI6MjA5MTI3MzI2OX0.sf60Q5lXQEiITnoobYySgjMPM6QxLxKvPv6DgJm5nlk';
 
-    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     let items = [];
 
@@ -274,9 +273,6 @@
         render();
       }
     }
-
-    window.addItem = addItem;
-    window.clearChecked = clearChecked;
 
     loadItems();
   </script>
